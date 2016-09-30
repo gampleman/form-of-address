@@ -1,0 +1,4 @@
+development:
+  host: 'localhost'
+  adapter: 'postgresql'
+  database: form_of_address_development

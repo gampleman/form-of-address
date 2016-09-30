@@ -7,6 +7,9 @@ gem 'rake'
 gem 'activerecord'
 gem 'activemodel'
 gem 'activesupport'
+gem 'pg'
+
+gem 'activerecord_sans_rails', git: 'https://github.com/andhapp/activerecord_sans_rails.git'
 
 group :development, :test do
   gem 'rspec'

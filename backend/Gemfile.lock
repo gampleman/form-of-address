@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/andhapp/activerecord_sans_rails.git
+  revision: b8e7f76f89eab79e36c94ee23b85b449ba888534
+  specs:
+    activerecord_sans_rails (0.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -30,6 +36,7 @@ GEM
       tool (~> 0.2)
     parser (2.3.1.4)
       ast (~> 2.2)
+    pg (0.19.0)
     powerpack (0.1.1)
     praxis (0.21)
       activesupport (>= 3)
@@ -93,7 +100,9 @@ PLATFORMS
 DEPENDENCIES
   activemodel
   activerecord
+  activerecord_sans_rails!
   activesupport
+  pg
   praxis
   rack (~> 1.0)
   rack-test
