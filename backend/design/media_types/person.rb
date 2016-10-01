@@ -5,6 +5,7 @@ module V1
       identifier 'application/json'
 
       attributes do
+        attribute :id, Integer, description: 'Unique ID of this user'
         attribute :name, String, description: 'The name of the person'
         attribute :email, String, description: 'An email address'
         attribute :phone, String, description: 'A phone number'

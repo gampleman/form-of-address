@@ -6,14 +6,11 @@ module V1
       media_type V1::MediaTypes::Organization
       version '1.0'
 
-      action_defaults do
-        response :ok
-      end
-
       action :index do
         routing do
           get ''
         end
+        response :ok, media_type: Praxis::Collection.of(V1::MediaTypes::Organization)
       end
 
       action :create do
@@ -28,6 +25,8 @@ module V1
           attribute :address
           attribute :people
         end
+
+        response :created_with_body, media_type: Praxis::Collection.of(V1::MediaTypes::Organization)
       end
 
       action :update do
@@ -48,6 +47,7 @@ module V1
         end
 
         response :not_found
+        response :ok
       end
 
       action :show do
@@ -60,6 +60,7 @@ module V1
         end
 
         response :not_found
+        response :ok, media_type: V1::MediaTypes::Organization
       end
 
       action :delete do
@@ -72,6 +73,7 @@ module V1
         end
 
         response :not_found
+        response :ok
       end
     end
   end
