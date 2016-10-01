@@ -5,7 +5,7 @@ describe V1::ApiResources::Organizations do
     use_api_version('1.0')
   end
 
-  describe "GET /organizations (index)" do
+  describe "GET /api/organizations (index)" do
     let(:org1) do
       Organization.create({
         name: 'Test org1',
@@ -23,7 +23,7 @@ describe V1::ApiResources::Organizations do
     end
 
     before(:each) do
-      get "/organizations"
+      get "/api/organizations"
       Organization.where('id NOT IN (?)', [org1.id, org2.id]).delete_all
     end
 
@@ -47,11 +47,11 @@ describe V1::ApiResources::Organizations do
     end
   end
 
-  describe "POST /organizations (create)" do
+  describe "POST /api/organizations (create)" do
     let!(:organization_count) { Organization.count }
     let!(:person_count) { Person.count }
     before(:each) do
-      post "/organizations", params.to_json
+      post "/api/organizations", params.to_json
     end
 
     context "valid with no people" do

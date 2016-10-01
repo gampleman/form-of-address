@@ -5,6 +5,7 @@ module V1
 
       media_type V1::MediaTypes::Organization
       version '1.0'
+      prefix "/api/organizations"
 
       action :index do
         routing do
