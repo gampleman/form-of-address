@@ -11,6 +11,8 @@ gem 'pg'
 
 gem 'activerecord_sans_rails', git: 'https://github.com/andhapp/activerecord_sans_rails.git'
 
+gem 'rack-rewrite' # for the actual rewriting
+
 group :development, :test do
   gem 'rspec'
   gem 'rack-test'

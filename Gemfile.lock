@@ -58,6 +58,7 @@ GEM
       randexp (~> 0)
       sequel (~> 4)
     rack (1.6.4)
+    rack-rewrite (1.5.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rainbow (2.1.0)
@@ -105,6 +106,7 @@ DEPENDENCIES
   pg
   praxis
   rack (~> 1.0)
+  rack-rewrite
   rack-test
   rake
   rspec

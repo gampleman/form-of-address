@@ -20,3 +20,12 @@ Praxis::Application.instance.layout do
     map :responses, '**/responses/**/*'
   end
 end
+
+Praxis::Application.configure do |application|
+  application.middleware Rack::Rewrite do
+    index_file = Praxis::Application.instance.root.join('index.html').to_s
+    send_file(/.*/, index_file, if: ->(rack_env) {
+      rack_env['PATH_INFO'] !~ /^\/api.*$/
+    })
+  end
+end
