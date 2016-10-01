@@ -1,0 +1,699 @@
+---
+:info:
+  :schema_version: '1.0'
+  :name: Form of Address
+  :base_path: ''
+  :version_with:
+  - :header
+  - :params
+  :endpoint: http://localhost
+  :consumes:
+  - json
+  :produces:
+  - json
+:resources:
+  V1-ApiResources-Organizations:
+    :description: 
+    :media_type:
+      :name: V1::MediaTypes::Organization
+      :family: hash
+      :id: V1-MediaTypes-Organization
+      :key:
+        :type:
+          :name: Symbol
+          :family: string
+          :id: Attributor-Symbol
+    :actions:
+    - :description: 
+      :name: :index
+      :metadata: {}
+      :responses:
+        :ok:
+          :description: Standard response for successful HTTP requests.
+          :status: 200
+          :headers: {}
+          :payload:
+            :name: V1::MediaTypes::Organization
+            :family: hash
+            :id: V1-MediaTypes-Organization
+            :key:
+              :type:
+                :name: Symbol
+                :family: string
+                :id: Attributor-Symbol
+            :examples:
+              json:
+                :content_type: application/json
+                :body: |-
+                  {
+                    "id": 119,
+                    "name": "Nephrolepis",
+                    "email": "uncoherently",
+                    "phone": "benzoic",
+                    "address": "decussation",
+                    "people": [
+                      {
+                        "name": "charting",
+                        "email": "mediodorsally",
+                        "phone": "magnetobell",
+                        "address": "metroscirrhus"
+                      }
+                    ]
+                  }
+      :urls:
+      - :verb: GET
+        :path: "/organizations"
+        :version: '1.0'
+        :example: "/organizations"
+    - :description: 
+      :name: :create
+      :metadata: {}
+      :payload:
+        :required: true
+        :options:
+          :reference: V1::MediaTypes::Organization
+        :type:
+          :name: Struct
+          :family: hash
+          :id: 
+          :key:
+            :type:
+              :name: Symbol
+              :family: string
+              :id: Attributor-Symbol
+          :attributes:
+            :name:
+              :description: The name of the organization
+              :type:
+                :name: String
+                :family: string
+                :id: Attributor-String
+              :example: Nephrolepis
+            :email:
+              :description: An email address that represents this organization
+              :type:
+                :name: String
+                :family: string
+                :id: Attributor-String
+              :example: uncoherently
+            :phone:
+              :description: A phone number
+              :type:
+                :name: String
+                :family: string
+                :id: Attributor-String
+              :example: benzoic
+            :address:
+              :description: An address
+              :type:
+                :name: String
+                :family: string
+                :id: Attributor-String
+              :example: decussation
+            :people:
+              :description: People bellonging to this organization
+              :type:
+                :name: Collection
+                :family: array
+                :id: 
+                :options: {}
+                :member_attribute:
+                  :options:
+                    :reference: V1::MediaTypes::Person
+                  :type:
+                    :name: V1::MediaTypes::Person
+                    :family: hash
+                    :id: V1-MediaTypes-Person
+                    :key:
+                      :type:
+                        :name: Symbol
+                        :family: string
+                        :id: Attributor-Symbol
+              :example:
+              - :name: charting
+                :email: mediodorsally
+                :phone: magnetobell
+                :address: metroscirrhus
+          :requirements: []
+        :examples:
+          json:
+            :content_type: application/json
+            :body: |-
+              {
+                "name": "Nephrolepis",
+                "email": "uncoherently",
+                "phone": "benzoic",
+                "address": "decussation",
+                "people": [
+                  {
+                    "name": "charting",
+                    "email": "mediodorsally",
+                    "phone": "magnetobell",
+                    "address": "metroscirrhus"
+                  }
+                ]
+              }
+      :responses:
+        :ok:
+          :description: Standard response for successful HTTP requests.
+          :status: 200
+          :headers: {}
+          :payload:
+            :name: V1::MediaTypes::Organization
+            :family: hash
+            :id: V1-MediaTypes-Organization
+            :key:
+              :type:
+                :name: Symbol
+                :family: string
+                :id: Attributor-Symbol
+            :examples:
+              json:
+                :content_type: application/json
+                :body: |-
+                  {
+                    "id": 119,
+                    "name": "Nephrolepis",
+                    "email": "uncoherently",
+                    "phone": "benzoic",
+                    "address": "decussation",
+                    "people": [
+                      {
+                        "name": "charting",
+                        "email": "mediodorsally",
+                        "phone": "magnetobell",
+                        "address": "metroscirrhus"
+                      }
+                    ]
+                  }
+      :urls:
+      - :verb: POST
+        :path: "/organizations"
+        :version: '1.0'
+        :example: "/organizations"
+    - :description: 
+      :name: :update
+      :metadata: {}
+      :params:
+        :required: true
+        :options:
+          :reference: V1::MediaTypes::Organization
+        :type:
+          :name: Struct
+          :family: hash
+          :id: 
+          :key:
+            :type:
+              :name: Symbol
+              :family: string
+              :id: Attributor-Symbol
+          :attributes:
+            :id:
+              :required: true
+              :options:
+                :min: 0
+              :type:
+                :name: Integer
+                :family: numeric
+                :id: Attributor-Integer
+              :example: 119
+              :source: url
+          :requirements:
+          - :type: :all
+            :attributes:
+            - :id
+        :example: ''
+      :payload:
+        :required: true
+        :options:
+          :reference: V1::MediaTypes::Organization
+        :type:
+          :name: Struct
+          :family: hash
+          :id: 
+          :key:
+            :type:
+              :name: Symbol
+              :family: string
+              :id: Attributor-Symbol
+          :attributes:
+            :name:
+              :description: The name of the organization
+              :type:
+                :name: String
+                :family: string
+                :id: Attributor-String
+              :example: Nephrolepis
+            :email:
+              :description: An email address that represents this organization
+              :type:
+                :name: String
+                :family: string
+                :id: Attributor-String
+              :example: uncoherently
+            :phone:
+              :description: A phone number
+              :type:
+                :name: String
+                :family: string
+                :id: Attributor-String
+              :example: benzoic
+            :address:
+              :description: An address
+              :type:
+                :name: String
+                :family: string
+                :id: Attributor-String
+              :example: decussation
+            :people:
+              :description: People bellonging to this organization
+              :type:
+                :name: Collection
+                :family: array
+                :id: 
+                :options: {}
+                :member_attribute:
+                  :options:
+                    :reference: V1::MediaTypes::Person
+                  :type:
+                    :name: V1::MediaTypes::Person
+                    :family: hash
+                    :id: V1-MediaTypes-Person
+                    :key:
+                      :type:
+                        :name: Symbol
+                        :family: string
+                        :id: Attributor-Symbol
+              :example:
+              - :name: charting
+                :email: mediodorsally
+                :phone: magnetobell
+                :address: metroscirrhus
+          :requirements: []
+        :examples:
+          json:
+            :content_type: application/json
+            :body: |-
+              {
+                "name": "Nephrolepis",
+                "email": "uncoherently",
+                "phone": "benzoic",
+                "address": "decussation",
+                "people": [
+                  {
+                    "name": "charting",
+                    "email": "mediodorsally",
+                    "phone": "magnetobell",
+                    "address": "metroscirrhus"
+                  }
+                ]
+              }
+      :responses:
+        :ok:
+          :description: Standard response for successful HTTP requests.
+          :status: 200
+          :headers: {}
+          :payload:
+            :name: V1::MediaTypes::Organization
+            :family: hash
+            :id: V1-MediaTypes-Organization
+            :key:
+              :type:
+                :name: Symbol
+                :family: string
+                :id: Attributor-Symbol
+            :examples:
+              json:
+                :content_type: application/json
+                :body: |-
+                  {
+                    "id": 119,
+                    "name": "Nephrolepis",
+                    "email": "uncoherently",
+                    "phone": "benzoic",
+                    "address": "decussation",
+                    "people": [
+                      {
+                        "name": "charting",
+                        "email": "mediodorsally",
+                        "phone": "magnetobell",
+                        "address": "metroscirrhus"
+                      }
+                    ]
+                  }
+        :not_found:
+          :description: The requested resource could not be found but may be available
+            again in the future.
+          :status: 404
+          :headers: {}
+      :urls:
+      - :verb: PATCH
+        :path: "/organizations/:id"
+        :version: '1.0'
+        :example: "/organizations/119"
+    - :description: 
+      :name: :show
+      :metadata: {}
+      :params:
+        :required: true
+        :options:
+          :reference: V1::MediaTypes::Organization
+        :type:
+          :name: Struct
+          :family: hash
+          :id: 
+          :key:
+            :type:
+              :name: Symbol
+              :family: string
+              :id: Attributor-Symbol
+          :attributes:
+            :id:
+              :required: true
+              :options:
+                :min: 0
+              :type:
+                :name: Integer
+                :family: numeric
+                :id: Attributor-Integer
+              :example: 119
+              :source: url
+          :requirements:
+          - :type: :all
+            :attributes:
+            - :id
+        :example: ''
+      :responses:
+        :ok:
+          :description: Standard response for successful HTTP requests.
+          :status: 200
+          :headers: {}
+          :payload:
+            :name: V1::MediaTypes::Organization
+            :family: hash
+            :id: V1-MediaTypes-Organization
+            :key:
+              :type:
+                :name: Symbol
+                :family: string
+                :id: Attributor-Symbol
+            :examples:
+              json:
+                :content_type: application/json
+                :body: |-
+                  {
+                    "id": 119,
+                    "name": "Nephrolepis",
+                    "email": "uncoherently",
+                    "phone": "benzoic",
+                    "address": "decussation",
+                    "people": [
+                      {
+                        "name": "charting",
+                        "email": "mediodorsally",
+                        "phone": "magnetobell",
+                        "address": "metroscirrhus"
+                      }
+                    ]
+                  }
+        :not_found:
+          :description: The requested resource could not be found but may be available
+            again in the future.
+          :status: 404
+          :headers: {}
+      :urls:
+      - :verb: GET
+        :path: "/organizations/:id"
+        :version: '1.0'
+        :example: "/organizations/119"
+    - :description: 
+      :name: :delete
+      :metadata: {}
+      :params:
+        :required: true
+        :options:
+          :reference: V1::MediaTypes::Organization
+        :type:
+          :name: Struct
+          :family: hash
+          :id: 
+          :key:
+            :type:
+              :name: Symbol
+              :family: string
+              :id: Attributor-Symbol
+          :attributes:
+            :id:
+              :required: true
+              :options:
+                :min: 0
+              :type:
+                :name: Integer
+                :family: numeric
+                :id: Attributor-Integer
+              :example: 119
+              :source: url
+          :requirements:
+          - :type: :all
+            :attributes:
+            - :id
+        :example: ''
+      :responses:
+        :ok:
+          :description: Standard response for successful HTTP requests.
+          :status: 200
+          :headers: {}
+          :payload:
+            :name: V1::MediaTypes::Organization
+            :family: hash
+            :id: V1-MediaTypes-Organization
+            :key:
+              :type:
+                :name: Symbol
+                :family: string
+                :id: Attributor-Symbol
+            :examples:
+              json:
+                :content_type: application/json
+                :body: |-
+                  {
+                    "id": 119,
+                    "name": "Nephrolepis",
+                    "email": "uncoherently",
+                    "phone": "benzoic",
+                    "address": "decussation",
+                    "people": [
+                      {
+                        "name": "charting",
+                        "email": "mediodorsally",
+                        "phone": "magnetobell",
+                        "address": "metroscirrhus"
+                      }
+                    ]
+                  }
+        :not_found:
+          :description: The requested resource could not be found but may be available
+            again in the future.
+          :status: 404
+          :headers: {}
+      :urls:
+      - :verb: DELETE
+        :path: "/organizations/:id"
+        :version: '1.0'
+        :example: "/organizations/119"
+    :name: V1::ApiResources::Organizations
+    :display_name: Organizations
+    :metadata: {}
+    :traits: []
+:schemas:
+  V1-MediaTypes-Organization:
+    :name: V1::MediaTypes::Organization
+    :family: hash
+    :id: V1-MediaTypes-Organization
+    :key:
+      :type:
+        :name: Symbol
+        :family: string
+        :id: Attributor-Symbol
+    :attributes:
+      :id:
+        :description: The id of the resource
+        :type:
+          :name: Integer
+          :family: numeric
+          :id: Attributor-Integer
+        :example: 809
+      :name:
+        :description: The name of the organization
+        :type:
+          :name: String
+          :family: string
+          :id: Attributor-String
+        :example: trachybasalt
+      :email:
+        :description: An email address that represents this organization
+        :type:
+          :name: String
+          :family: string
+          :id: Attributor-String
+        :example: Calculagraph
+      :phone:
+        :description: A phone number
+        :type:
+          :name: String
+          :family: string
+          :id: Attributor-String
+        :example: tellable
+      :address:
+        :description: An address
+        :type:
+          :name: String
+          :family: string
+          :id: Attributor-String
+        :example: flaccidness
+      :people:
+        :description: People bellonging to this organization
+        :type:
+          :name: Collection
+          :family: array
+          :id: 
+          :options: {}
+          :member_attribute:
+            :options:
+              :reference: V1::MediaTypes::Person
+            :type:
+              :name: V1::MediaTypes::Person
+              :family: hash
+              :id: V1-MediaTypes-Person
+              :key:
+                :type:
+                  :name: Symbol
+                  :family: string
+                  :id: Attributor-Symbol
+        :example:
+        - :name: robustic
+          :email: isodimorphic
+          :phone: serofibrous
+          :address: predissolution
+        - :name: tintinnabulary
+          :email: Midwest
+          :phone: whinnock
+          :address: subterfluent
+        - :name: kaki
+          :email: inactivate
+          :phone: Actiad
+          :address: vegetoalkaloid
+    :requirements: []
+    :views:
+      :default:
+        :attributes:
+          :id: {}
+          :name: {}
+          :email: {}
+          :phone: {}
+          :address: {}
+          :people:
+            :view: :default
+        :type: :standard
+        :example:
+          :id: 809
+          :name: trachybasalt
+          :email: Calculagraph
+          :phone: tellable
+          :address: flaccidness
+          :people:
+          - :name: robustic
+            :email: isodimorphic
+            :phone: serofibrous
+            :address: predissolution
+          - :name: tintinnabulary
+            :email: Midwest
+            :phone: whinnock
+            :address: subterfluent
+          - :name: kaki
+            :email: inactivate
+            :phone: Actiad
+            :address: vegetoalkaloid
+    :identifier: application/json
+    :description: 
+    :display_name: Organization
+    :example:
+      :id: 809
+      :name: trachybasalt
+      :email: Calculagraph
+      :phone: tellable
+      :address: flaccidness
+      :people:
+      - :name: robustic
+        :email: isodimorphic
+        :phone: serofibrous
+        :address: predissolution
+      - :name: tintinnabulary
+        :email: Midwest
+        :phone: whinnock
+        :address: subterfluent
+      - :name: kaki
+        :email: inactivate
+        :phone: Actiad
+        :address: vegetoalkaloid
+  V1-MediaTypes-Person:
+    :name: V1::MediaTypes::Person
+    :family: hash
+    :id: V1-MediaTypes-Person
+    :key:
+      :type:
+        :name: Symbol
+        :family: string
+        :id: Attributor-Symbol
+    :attributes:
+      :name:
+        :description: The name of the person
+        :type:
+          :name: String
+          :family: string
+          :id: Attributor-String
+        :example: Pehuenche
+      :email:
+        :description: An email address
+        :type:
+          :name: String
+          :family: string
+          :id: Attributor-String
+        :example: tankah
+      :phone:
+        :description: A phone number
+        :type:
+          :name: String
+          :family: string
+          :id: Attributor-String
+        :example: meldometer
+      :address:
+        :description: A physical address
+        :type:
+          :name: String
+          :family: string
+          :id: Attributor-String
+        :example: inducer
+    :requirements: []
+    :views:
+      :default:
+        :attributes:
+          :name: {}
+          :email: {}
+          :phone: {}
+          :address: {}
+        :type: :standard
+        :example:
+          :name: Pehuenche
+          :email: tankah
+          :phone: meldometer
+          :address: inducer
+    :identifier: application/json
+    :description: 
+    :display_name: Person
+    :example:
+      :name: Pehuenche
+      :email: tankah
+      :phone: meldometer
+      :address: inducer
+:traits: {}

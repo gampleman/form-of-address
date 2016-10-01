@@ -1,0 +1,21 @@
+{
+  "info": {
+    "schema_version": "1.0",
+    "name": "Form of Address",
+    "base_path": "",
+    "version_with": [
+      "header",
+      "params"
+    ],
+    "endpoint": "http://localhost",
+    "consumes": [
+      "json"
+    ],
+    "produces": [
+      "json"
+    ]
+  },
+  "versions": [
+    "1.0"
+  ]
+}
