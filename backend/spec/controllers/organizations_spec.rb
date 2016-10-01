@@ -5,11 +5,11 @@ describe V1::ApiResources::Organizations do
     use_api_version('1.0')
   end
 
-  describe "POST /api/organizations (create)" do
+  describe "POST /organizations (create)" do
     let!(:organization_count) { Organization.count }
     let!(:person_count) { Person.count }
     before(:each) do
-      post "/api/organizations", params.to_json
+      post "/organizations", params.to_json
     end
 
     context "valid with no people" do
@@ -28,11 +28,11 @@ describe V1::ApiResources::Organizations do
       end
 
       it "returns the correct response" do
-        expect(json_response.slice(:name, :email, :phone, :address)).to eq({
-          name: 'Test org1',
-          email: 'org1@org1.com',
-          phone: '0785 435 2234',
-          address: 'Livingston 232, Arkansas'
+        expect(json_response.slice("name", "email", "phone", "address")).to eq({
+          "name" => 'Test org1',
+          "email" => 'org1@org1.com',
+          "phone" => '0785 435 2234',
+          "address" => 'Livingston 232, Arkansas'
         })
       end
 
@@ -68,16 +68,16 @@ describe V1::ApiResources::Organizations do
       end
 
       it "returns the correct response" do
-        expect(json_response[:people]).to eq([
+        expect(json_response["people"]).to eq([
           {
-            name: 'John Doe',
-            email: 'john@org1.com',
-            phone: '34453645354'
+            "name" => 'John Doe',
+            "email" => 'john@org1.com',
+            "phone" => '34453645354'
           },
           {
-            name: 'Audrey Burn',
-            email: 'audrey@org1.com',
-            phone: '34453645357'
+            "name" => 'Audrey Burn',
+            "email" => 'audrey@org1.com',
+            "phone" => '34453645357'
           }
         ])
       end

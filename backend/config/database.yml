@@ -2,3 +2,7 @@ development:
   host: 'localhost'
   adapter: 'postgresql'
   database: form_of_address_development
+test:
+  host: 'localhost'
+  adapter: 'postgresql'
+  database: form_of_address_test

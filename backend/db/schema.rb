@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20160930211710) do
     t.datetime "updated_at"
   end
 
-  create_table "persons", force: :cascade do |t|
+  create_table "people", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.string   "phone"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20160930211710) do
     t.integer  "organization_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["organization_id"], name: "index_persons_on_organization_id", using: :btree
+    t.index ["organization_id"], name: "index_people_on_organization_id", using: :btree
   end
 
 end

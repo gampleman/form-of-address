@@ -8,7 +8,7 @@ class CreateOrganizations < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table :persons do |t| # let's make life easy with AR
+    create_table :people do |t| # let's make life easy with AR
       t.string :name
       t.string :email
       t.string :phone
@@ -18,6 +18,6 @@ class CreateOrganizations < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :persons, :organization_id
+    add_index :people, :organization_id
   end
 end

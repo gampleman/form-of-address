@@ -11,4 +11,10 @@ Praxis::ApiDefinition.define do
     endpoint 'http://localhost'
     consumes 'json'
   end
+
+  response_template :created_with_body do |media_type:, location: nil|
+    media_type media_type
+    location location
+    status 201
+  end
 end

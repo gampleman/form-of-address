@@ -1,5 +1,6 @@
 require 'bundler/setup'
 require 'praxis'
+require 'active_support'
 
 ENV['RACK_ENV'] = 'test'
 
