@@ -47,6 +47,34 @@ describe V1::ApiResources::Organizations do
     end
   end
 
+  describe "PATCH /api/organizations/:id (update)" do
+    let(:organization) { Organization.create(name: 'Test 1') }
+
+    before(:each) do
+      patch "/api/organizations/#{organization.id}", params.to_json
+    end
+
+    context "no people" do
+      let(:params) do
+        {
+          name: 'Updated name',
+          email: 'real@email.com'
+        }
+      end
+
+      it "has the correct response code" do
+        expect(response.status).to eq(201)
+      end
+
+      it "returns the correct response" do
+        expect(json_response.slice("name", "email")).to eq({
+          "name" => 'Updated name',
+          "email" => 'real@email.com'
+        })
+      end
+    end
+  end
+
   describe "POST /api/organizations (create)" do
     let!(:organization_count) { Organization.count }
     let!(:person_count) { Person.count }
