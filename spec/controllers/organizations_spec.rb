@@ -183,4 +183,26 @@ describe V1::ApiResources::Organizations do
       end
     end
   end
+
+  describe "DELETE /api/organizations/:id (delete)" do
+    let!(:organization) { Organization.create(name: 'Test 1', people: [{name: 'Martin Luther'}]) }
+    let!(:organization_count) { Organization.count }
+    let!(:person_count) { Person.count }
+
+    before(:each) do
+      delete "/api/organizations/#{organization.id}"
+    end
+
+    it "has the correct response code" do
+      expect(response.status).to eq(200)
+    end
+
+    it "deletes the organization" do
+      expect(Organization.count).to eq(organization_count - 1)
+    end
+
+    it "deletes the associated people" do
+      expect(Person.count).to eq(person_count - 1)
+    end
+  end
 end
