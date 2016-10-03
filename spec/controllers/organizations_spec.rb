@@ -184,7 +184,7 @@ describe V1::ApiResources::Organizations do
     end
   end
 
-  describe "DELETE /api/organizations/:id (delete)" do
+  describe "DELETE /api/organizations/:id (destroy)" do
     let!(:organization) { Organization.create(name: 'Test 1', people: [{name: 'Martin Luther'}]) }
     let!(:organization_count) { Organization.count }
     let!(:person_count) { Person.count }
@@ -194,7 +194,7 @@ describe V1::ApiResources::Organizations do
     end
 
     it "has the correct response code" do
-      expect(response.status).to eq(200)
+      expect(response.status).to eq(204)
     end
 
     it "deletes the organization" do

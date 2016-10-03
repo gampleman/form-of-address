@@ -1,5 +1,5 @@
 class Organization < ActiveRecord::Base
-  has_many :people
+  has_many :people, dependent: :destroy
 
   validates_presence_of :name
   alias_method :old_people, :people=

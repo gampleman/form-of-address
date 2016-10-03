@@ -64,7 +64,7 @@ module V1
         response :ok, media_type: V1::MediaTypes::Organization
       end
 
-      action :delete do
+      action :destroy do
         routing do
           delete '/:id'
         end

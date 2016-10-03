@@ -25,5 +25,10 @@ module V1
       response.body = V1::MediaTypes::Organization.render(ActiveRecordProxy.new(organization))
       response
     end
+
+    def destroy(id:)
+      Organization.find(id).destroy
+      Praxis::Responses::NoContent.new
+    end
   end
 end
