@@ -16,5 +16,14 @@ module V1
       end
       response
     end
+
+    def update(id:)
+      organization = Organization.find id
+      organization.assign_attributes request.payload.dump
+      organization.save!
+      response.headers['Content-Type'] = 'application/json'
+      response.body = V1::MediaTypes::Organization.render(ActiveRecordProxy.new(organization))
+      response
+    end
   end
 end

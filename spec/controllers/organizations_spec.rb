@@ -48,7 +48,7 @@ describe V1::ApiResources::Organizations do
   end
 
   describe "PATCH /api/organizations/:id (update)" do
-    let(:organization) { Organization.create(name: 'Test 1') }
+    let(:organization) { Organization.create(name: 'Test 1', people: [{name: 'Martin Luther'}]) }
 
     before(:each) do
       patch "/api/organizations/#{organization.id}", params.to_json
@@ -63,7 +63,7 @@ describe V1::ApiResources::Organizations do
       end
 
       it "has the correct response code" do
-        expect(response.status).to eq(201)
+        expect(response.status).to eq(200)
       end
 
       it "returns the correct response" do
@@ -71,6 +71,28 @@ describe V1::ApiResources::Organizations do
           "name" => 'Updated name',
           "email" => 'real@email.com'
         })
+      end
+    end
+
+    context "with people" do
+      let(:params) do
+        {
+          name: 'Updated name',
+          email: 'real@email.com',
+          people: [{
+            name: 'John Doe'
+          }]
+        }
+      end
+
+      it "has the correct response code" do
+        expect(response.status).to eq(200)
+      end
+
+      it "returns the correct response" do
+        expect(json_response["people"].map{|p| p.slice("name")}).to eq([{
+          "name" => 'John Doe'
+        }])
       end
     end
   end
