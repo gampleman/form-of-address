@@ -1,5 +1,3 @@
-#\ -p 8888
-
 require 'bundler/setup'
 require 'praxis'
 
