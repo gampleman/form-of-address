@@ -263,7 +263,7 @@ personEdit person =
             , tableRow "phone" "Phone" (Maybe.withDefault "" <| person.phone) Phone
             , tableRow "address" "Address" (Maybe.withDefault "" <| person.address) Address
             ]
-        , button [ onClickNoDefault (Delete) ] [ Html.text "Delete" ]
+        , button [ onClickNoDefault (Delete), styles (buttonStyles ++ [ borderColor (rgb 200 20 20), color (rgb 200 20 20) ]) ] [ Html.text "Delete" ]
         ]
 
 
