@@ -22,6 +22,7 @@ Praxis::Application.instance.layout do
 end
 
 Praxis::Application.configure do |application|
+  application.middleware Rack::Static, urls: ["/assets"]
   application.middleware Rack::Rewrite do
     index_file = Praxis::Application.instance.root.join('index.html').to_s
     send_file(/.*/, index_file, if: ->(rack_env) {
