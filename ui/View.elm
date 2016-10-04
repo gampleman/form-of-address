@@ -108,7 +108,7 @@ orgItem current { id, name, email, phone, address, people } =
                                     [ Html.text person.name ]
                                 ]
                     )
-                    people
+                    (List.sortBy .name people)
             ]
 
 
@@ -133,7 +133,7 @@ navigation model =
         [ RequestState.loading model.organizations
             (\orgs ->
                 div [ styles [ Css.property "height" "calc(90vh - 80px)", Css.width (px 220), overflowY auto, borderRight3 (px 1) solid (rgb 83 77 87) ] ]
-                    [ ul [ styles [ listStyleType none, padding (px 0) ] ] (List.map (orgItem model.current) orgs)
+                    [ ul [ styles [ listStyleType none, padding (px 0) ] ] (List.map (orgItem model.current) (List.sortBy .name orgs))
                     ]
             )
         , p []

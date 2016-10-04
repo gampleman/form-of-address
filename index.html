@@ -15104,7 +15104,12 @@ var _user$project$View$orgItem = F2(
 											]))
 									]));
 						},
-						_p9.people))
+						A2(
+							_elm_lang$core$List$sortBy,
+							function (_) {
+								return _.name;
+							},
+							_p9.people)))
 				]));
 	});
 var _user$project$View$navigation = function (model) {
@@ -15153,7 +15158,12 @@ var _user$project$View$navigation = function (model) {
 								A2(
 									_elm_lang$core$List$map,
 									_user$project$View$orgItem(model.current),
-									orgs))
+									A2(
+										_elm_lang$core$List$sortBy,
+										function (_) {
+											return _.name;
+										},
+										orgs)))
 							]));
 				}),
 				A2(
@@ -15446,9 +15456,7 @@ var _user$project$View$organizationDetail = F2(
 											_elm_lang$core$Native_List.fromArray(
 												[
 													_rtfeldman$elm_css$Css$width(
-													_rtfeldman$elm_css$Css$px(300)),
-													_rtfeldman$elm_css$Css$marginRight(
-													_rtfeldman$elm_css$Css$px(20))
+													_rtfeldman$elm_css$Css$px(300))
 												])))
 									]),
 								_elm_lang$core$Native_List.fromArray(
