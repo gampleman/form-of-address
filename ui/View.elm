@@ -156,7 +156,10 @@ navigation model =
 
 welcome : Model -> Html Msg
 welcome model =
-    h1 [ styles [ margin2 (vh 50) auto, textAlign center, Css.width (pct 100) ] ] [ Html.text "Welcome to the address book" ]
+    div [ styles [ padding (px 30) ] ]
+        [ h1 [] [ Html.text "Welcome to the address book" ]
+        , p [] [ Html.text "Start by creating some organizations" ]
+        ]
 
 
 e404 : Html Msg
